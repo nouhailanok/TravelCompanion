@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>all my trips</title>
 </head>
 <body>
-
+<h1>all my trips</h1>
+{% for trip in trips %}
+<p><a href="/trip_detail/{{ trip.id }}"><b>{{trip.nom}}</b></a></p>
+{% endfor %}
+<a style="color: black" href="/travelcompanion/addTrip">ajouter Trip</a>
 </body>
 </html>

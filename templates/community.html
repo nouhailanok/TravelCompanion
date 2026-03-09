@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<h1>Community Recommendations</h1>
 
-</body>
-</html>
+<form method="get">
+    <label>Filter by city:</label>
+    <select name="city" onchange="this.form.submit()">
+        <option value="">All</option>
+        {% for city in cities %}
+            <option value="{{ city }}" {% if selected_city == city %}selected{% endif %}>{{ city }}</option>
+        {% endfor %}
+    </select>
+</form>
+
+{% for post in posts %}
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background-color: #eee;">
+        {% if post.image %}
+            <img src="{{ post.image.url }}" width="200">
+        {% endif %}
+        <h3>{{ post.Add_Place }}</h3>
+        <p>{{ post.Description }}</p>
+        <p><strong>{{ post.likes.count }} Likes</strong> | {{ post.comments.count }} Comments</p>
+        <a href="{% url 'post_detail' post.id %}">View Details</a>
+        <a href="{% url 'ajouter_comment' post.id %}">Ajouter un commentaire</a>
+
+    </div>
+{% endfor %}

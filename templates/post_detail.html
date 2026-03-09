@@ -1,10 +1,37 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Post detail</title>
 </head>
 <body>
+<h1>Post details</h1>
+<h2>Image: </h2>
+{% if posts.image %}
+    <img src="{{ posts.image.url }}" alt="Post image" width="300">
+{% else %}
+    No image uploaded.
+{% endif %}
+<h2>Add_Place : </h2>{{ posts.Add_Place }}
+<h2>Description : </h2>{{ posts.Description }}<br><br>
 
+<hr>
+<h2>Commentaires :</h2>
+{% if posts.comments.all %}
+    <ul>
+        {% for comment in posts.comments.all %}
+            <li><strong>{{ comment.user.username }}</strong> ({{ comment.created_at|date:"d/m/Y H:i" }}): <br>{{ comment.text }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Aucun commentaire pour ce post.</p>
+{% endif %}
+
+<br>
+
+<a href="{% url 'post_delete' posts.id %}">Delete this Post</a>
+<a href="../../post_list/">Back to Posts</a>
+<a href="{% url 'post_edit' posts.id %}">Edit this Post</a>
 </body>
 </html>

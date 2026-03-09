@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Trip details</title>
 </head>
 <body>
+<h1>Trip details</h1>
+<h2>Nom : </h2> {{trip.nom}}
+<h2>Destination : </h2>{{trip.destination}}
+<h2>Start_date : </h2>{{trip.start_date}}
+<h2>End_date : </h2>{{trip.end_date}}
+<h2>Trip_type : </h2>{{trip.trip_type}}<br><br>
+<a href="/{{trip.id}}/trip_delete/">Delete this Article</a><br><br>
+<a href="../../trip_list/">Back to trips</a>
 
 </body>
 </html>

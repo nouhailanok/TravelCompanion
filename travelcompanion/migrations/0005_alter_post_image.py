@@ -16,8 +16,7 @@ class Migration(migrations.Migration):
             field=models.ImageField(
                 blank=True,
                 null=True,
-                upload_to="media/posts/",
-                validators=[travelcompanion.models.validate_image_format],
+                upload_to="posts/",
             ),
         ),
     ]

@@ -17,7 +17,6 @@ class Migration(migrations.Migration):
                 blank=True,
                 null=True,
                 upload_to="posts/",
-                validators=[travelcompanion.models.validate_image_format],
             ),
         ),
     ]

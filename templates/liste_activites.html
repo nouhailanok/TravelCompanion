@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Liste des Activités</title>
+    <style>
+        body { font-family: Arial; background-color: #f4f4f4; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h2 { text-align: center; color: black; }
+        ul { list-style: none; padding: 0; }
+        li { background: #fff; padding: 12px; margin: 8px 0; border-radius: 5px; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); display: flex; align-items: center; justify-content: space-between; }
+        button, .btn { display: block; text-align: center; margin-top: 15px; padding: 10px; background-color: #007bff; color: white; border-radius: 5px; text-decoration: none; border: none; }
+        form.checkbox-form { display: inline; margin: 0; }
+        label { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+    </style>
 </head>
 <body>
+
+<div class="container">
+    <h2> Liste des Activités</h2>
+
+    <form method="GET">
+        {{ form.as_p }}
+        <button type="submit"> Rechercher</button>
+    </form>
+
+    <ul>
+        {% for activite in activites %}
+            <li>
+                <div>
+                    <a href="{% url 'activite_detail' activite.id %}">
+                        <strong>{{ activite.nom }}</strong> - Voyage : {{ activite.voyage.nom }}
+                    </a>
+                </div>
+                <form method="post" action="{% url 'terminee' activite.id %}" class="checkbox-form">
+                    {% csrf_token %}
+                    <label>
+                        <input type="checkbox" onchange="this.form.submit()" {% if activite.terminee %}checked{% endif %}>
+                        Terminée
+                    </label>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'ajouter_activite' %}" class="btn">Ajouter une Activité</a>
+</div>
 
 </body>
 </html>

@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Comment Form</title>
 </head>
 <body>
-
+<h2>Ajouter un commentaire pour {{ post.Add_Place }}</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Ajouter un commentaire">
+</form>
 </body>
 </html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails de l'Activité</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding: 20px; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h2 { color: black; }
+        .btn { display: inline-block; margin-top: 15px; padding: 10px; background-color: #007bff; color: white; border-radius: 5px; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>{{ activite.nom }}</h2>
+    <p><strong>Description :</strong> {{ activite.description }}</p>
+    <p><strong>Voyage associé :</strong> {{ activite.voyage.nom }}</p>
+
+    <a href="{% url 'liste_activites' %}" class="btn">Retour</a>
+    <a href="{% url 'modifier_activite' activite.id %}" class="btn">Modifier</a>
+    <a href="{% url 'activite_delete' activite.id %}" class="btn">Supprimer</a>
+</div>
+
+</body>
+</html>

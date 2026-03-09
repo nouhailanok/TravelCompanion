@@ -2,9 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home</title>
+    <STYLE TYPE="text/css">
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+        
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+        
+        .menu li {
+            margin: 0 10px;
+        }
+        
+        .menu a {
+            color: white;
+            text-decoration: none;
+        }
+
+    </STYLE>
 </head>
 <body>
+<header>
+        <nav>
+            <div class="logo">Mon Site</div>
+            <ul class="menu">
+                <li><a href="/travelcompanion/trip_list/">all my trips</a></li>
+                <li><a href="/travelcompanion/addTrip">ajouter Trip</a></li>
+                <li><a href="/travelcompanion/post_list/">all my Posts</a></li>
+                <li><a href="/travelcompanion/addPost/">ajouter Post</a></li>
+                <li><a href="/travelcompanion/community/">Community</a></li>
+                <li><a href="{% url 'ajouter_activite' %}">Ajouter une Activité</a></li>
+                <li><a href="{% url 'liste_activites' %}" >all my activities</a></li>
+            </ul>
+        </nav>
+</header>
 
 </body>
 </html>

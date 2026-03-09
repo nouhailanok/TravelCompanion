@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>liste des posts</title>
 </head>
 <body>
+<h1>all my Posts</h1>
+{% for post in posts %}
+<p><a href="/post_detail/{{ post.id }}"><b>{{post.Add_Place}}</b></a></p>
+{% endfor %}
+<a style="color: black" href="/travelcompanion/addPost/">ajouter Post</a>
 
 </body>
 </html>

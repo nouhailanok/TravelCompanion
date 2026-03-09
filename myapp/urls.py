@@ -15,8 +15,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path , re_path,include
+from django.conf import settings
+from django.conf.urls.static import static
 
+# myapp/urls.py
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    re_path(r'^admin/', admin.site.urls),
+    # This will make travelcompanion.urls (which are prefixed with 'api/') available from the root
+    # e.g., /api/posts/, /api/trips/
+    re_path(r'^', include('travelcompanion.urls')),
+    # This will make account.urls (which are also prefixed with 'api/') available under /connect/
+    # e.g., /connect/api/users/, /connect/api/token/
+    re_path(r'^connect/', include('account.urls')),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
