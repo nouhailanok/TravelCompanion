@@ -17,17 +17,11 @@ Pour organiser un voyage, il faut aujourd'hui jongler entre plusieurs outils : c
 - Communauté : publication de posts et partage de plans de voyage
 - Profil utilisateur et suivi des voyages (en cours, à venir, terminés)
 
-`[Retire les lignes qui ne sont pas implémentées dans le code.]`
 
 ## Conception UX
 
 Avant de coder, nous avons mené une étude UX : interviews utilisateurs, personas, analyse concurrentielle (Google Maps, TripAdvisor, Booking, Rome2Rio, Skyscanner), user flow et design system. Les écrans (mobile et desktop) ont été prototypés sur Figma.
 
-`[Ajoute le lien Figma ici.]`
-
-## Ma contribution
-
-`[À compléter : ta part dans la conception UX, le backend Django et/ou le frontend React.]`
 
 ## Structure du dépôt
 
